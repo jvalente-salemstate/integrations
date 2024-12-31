@@ -494,6 +494,80 @@
                 "preserve_original_event",
                 "preserve_duplicate_custom_fields"
             ]
+        },
+        {
+            "@timestamp": "2024-12-30T20:47:45.776Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "iam"
+                ],
+                "id": "56d57463-7696-467f-bcb5-169cfc8fe6b1",
+                "kind": "asset",
+                "original": "{ \"Tenant\": \"DefaultTenant\", \"_TimeReceivedBySvc\": \"2024-12-30T23:47:59.3940000Z\", \"category\": \"AdvancedHunting-IdentityInfo\", \"operationName\": \"Pubilsh\", \"properties\": { \"AccountDisplayName\": \"John Doe\", \"AccountDomain\": \"ad.contoso.com\", \"AccountName\": \"jdoe\", \"AccountObjectId\": \"c69b7aa7-2557-4000-aa2d-983d7bbf7e7b\", \"AccountUpn\": \"jdoe@contoso.com\", \"Address\": null, \"BlastRadius\": null, \"ChangeSource\": \"AzureActiveDirectory\", \"City\": null, \"CloudSid\": \"S-1-12-1-144444441-444444444-44444444-44444\", \"CompanyName\": null, \"Country\": null, \"CreatedDateTime\": \"2017-01-11T17:39:42Z\", \"CriticalityLevel\": null, \"DeletedDateTime\": null, \"Department\": \"Accounting\", \"DistinguishedName\": \"CN=jdoe,OU=Employees,OU=Users,DC=ad,DC=contoso,DC=com\", \"EmailAddress\": \"jdoe@contoso.com\", \"EmployeeId\": null, \"GivenName\": \"John\", \"IsAccountEnabled\": true, \"JobTitle\": \"Accounting\", \"Manager\": null, \"OnPremSid\": \"S-1-5-21-444444444-444444444-44444444-44444\", \"OtherMailAddresses\": null, \"Phone\": \"617-857-5309\", \"ReportId\": \"56d57463-7696-467f-bcb5-169cfc8fe6b1\", \"RiskLevel\": null, \"RiskLevelDetails\": null, \"SipProxyAddress\": \"\", \"SourceProvider\": \"AzureActiveDirectory\", \"State\": null, \"Surname\": \"Doe\", \"Tags\": [], \"Timestamp\": \"2024-12-30T20:47:45.7760199Z\", \"Type\": \"User\" }, \"tenantId\": \"fbee18ed-59da-4106-b2f3-ead8c85b57c0\", \"time\": \"2024-12-30T20:47:48.8482854Z\" }",
+                "type": [
+                    "info",
+                    "user"
+                ]
+            },
+            "m365_defender": {
+                "event": {
+                    "account": {
+                        "cloud_sid": "S-1-12-1-144444441-444444444-44444444-44444",
+                        "created": "2017-01-11T17:39:42Z",
+                        "department": "Accounting",
+                        "display_name": "John Doe",
+                        "distinguished_name": "CN=jdoe,OU=Employees,OU=Users,DC=ad,DC=contoso,DC=com",
+                        "domain": "ad.contoso.com",
+                        "email_address": "jdoe@contoso.com",
+                        "given_name": "John",
+                        "is_enabled": true,
+                        "job_title": "Accounting",
+                        "name": "jdoe",
+                        "object_id": "c69b7aa7-2557-4000-aa2d-983d7bbf7e7b",
+                        "on_prem_sid": "S-1-5-21-444444444-444444444-44444444-44444",
+                        "phone": "617-857-5309",
+                        "surname": "Doe",
+                        "upn": "jdoe@contoso.com"
+                    },
+                    "category": "AdvancedHunting-IdentityInfo",
+                    "change_source": "AzureActiveDirectory",
+                    "operation_name": "Pubilsh",
+                    "report_id": "56d57463-7696-467f-bcb5-169cfc8fe6b1",
+                    "source_provider": "AzureActiveDirectory",
+                    "tenant": {
+                        "id": "fbee18ed-59da-4106-b2f3-ead8c85b57c0",
+                        "name": "DefaultTenant"
+                    },
+                    "time": "2024-12-30T20:47:48.848Z",
+                    "timestamp": "2024-12-30T20:47:45.776Z",
+                    "type": "User"
+                }
+            },
+            "related": {
+                "hosts": [
+                    "ad.contoso.com"
+                ],
+                "user": [
+                    "c69b7aa7-2557-4000-aa2d-983d7bbf7e7b",
+                    "John Doe",
+                    "S-1-12-1-144444441-444444444-44444444-44444",
+                    "S-1-5-21-444444444-444444444-44444444-44444",
+                    "jdoe@contoso.com",
+                    "jdoe"
+                ]
+            },
+            "tags": [
+                "preserve_original_event",
+                "preserve_duplicate_custom_fields"
+            ],
+            "user": {
+                "domain": "ad.contoso.com",
+                "id": "c69b7aa7-2557-4000-aa2d-983d7bbf7e7b",
+                "name": "jdoe"
+            }
         }
     ]
 }
