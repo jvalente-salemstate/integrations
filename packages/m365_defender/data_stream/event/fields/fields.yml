@@ -7,9 +7,6 @@
     - name: account
       type: group
       fields:
-        - name: additional_mail_addresses
-          type: keyword
-          description: The additional email addresses of the user.
         - name: address
           type: keyword
           description: The address of the account user. 
@@ -55,6 +52,9 @@
         - name: email_address
           type: keyword
           description: SMTP address of the account.
+        - name: employee_id
+          type: keyword
+          description: Employee ID number of the account user.
         - name: distinguished_name
           type: keyword
           description: The user's distinguished name.          
@@ -82,6 +82,9 @@
         - name: on_prem_sid
           type: keyword
           description: On-premises security identifier (SID) of the account.
+        - name: other_mail_addresses
+          type: keyword
+          description: The additional email addresses of the user.
         - name: phone
           type: keyword
           description: The listed phone number of the account user
@@ -97,6 +100,9 @@
         - name: sip_proxy_address
           type: keyword
           description: Voice over IP (VOIP) session initiation protocol (SIP) address of the account.
+        - name: state
+          type: keyword
+          description: The geographical state of the user account.
         - name: surname
           type: keyword
           description: Surname, family name, or last name of the account user

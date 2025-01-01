@@ -268,11 +268,24 @@ processors:
       field: json.properties.Country
       target_field: m365_defender.event.country
       tag: rename_json_properties_Country
+      if: ctx.m365_defender.event.category.toLowerCase() != 'advancedhunting-identityinfo'
       ignore_missing: true      
+  - rename:
+      field: json.properties.Country
+      target_field: m365_defender.event.account.country
+      tag: rename_json_properties_Country
+      if: ctx.m365_defender.event.category.toLowerCase() == 'advancedhunting-identityinfo'
+      ignore_missing: true
   - rename:
       field: json.properties.CountryCode
       target_field: m365_defender.event.country_code
       tag: rename_json_properties_CountryCode
+      ignore_missing: true
+  - rename:
+      field: json.properties.State
+      target_field: m365_defender.event.account.state
+      tag: rename_json_properties_State
+      if: ctx.m365_defender.event.category.toLowerCase() == 'advancedhunting-identityinfo'
       ignore_missing: true
   - rename:
       field: json.properties.Protocol
@@ -455,6 +468,11 @@ processors:
       tag: rename_json_properties_Department
       ignore_missing: true          
   - rename:
+      field: json.properties.EmployeeId
+      target_field: m365_defender.event.account.employee_id
+      tag: rename_json_properties_EmployeeId
+      ignore_missing: true      
+  - rename:
       field: json.properties.Surname
       target_field: m365_defender.event.account.surname
       tag: rename_json_properties_Surname
@@ -490,9 +508,9 @@ processors:
       tag: rename_json_properties_BlastRadius
       ignore_missing: true    
   - rename:
-      field: json.properties.AdditionalMailAddresses
-      target_field: m365_defender.event.account.additional_mail_addresses
-      tag: rename_json_properties_AdditionalMailAddresses
+      field: json.properties.OtherMailAddresses
+      target_field: m365_defender.event.account.other_mail_addresses
+      tag: rename_json_properties_OtherMailAddresses
       ignore_missing: true    
   - rename:
       field: json.properties.CompanyName
@@ -520,7 +538,6 @@ processors:
       tag: rename_json_properties_RiskLevelDetails
       ignore_missing: true   
                            
-    
   # Destination mapping
   - set:
       field: destination.domain
@@ -636,7 +653,6 @@ processors:
       ignore_empty_value: true
       tag: set_user_id
       if: ctx.m365_defender.event.category.toLowerCase().contains('identitylogonevents')
-
   - set:
       field: user.name
       copy_from: m365_defender.event.account.name
@@ -654,10 +670,15 @@ processors:
       tag: set_user_name
       if: ctx.m365_defender?.event?.account?.display_name != null && ctx.user?.name == null
   - set:
+      field: user.full_name
+      copy_from: m365_defender.event.account.display_name
+      if: ctx.m365_defender?.event?.account?.display_name != null && ctx.user?.full_name == null && ctx.m365_defender.event.category.toLowerCase().contains('identityinfo')
+      tag: set_user_full_name
+  - set:
       field: user.email
       copy_from: m365_defender.event.account.email_address
       tag: set_user_email
-      if: ctx.m365_defender?.event?.account?.email_address != null && ctx.user?.name == null
+      if: ctx.m365_defender?.event?.account?.email_address != null
   - set:
       field: user.id
       copy_from: m365_defender.event.account.object_id
