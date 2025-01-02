@@ -87,7 +87,7 @@
           description: The additional email addresses of the user.
         - name: phone
           type: keyword
-          description: The listed phone number of the account user
+          description: The listed phone number of the account user.
         - name: risk_level
           type: keyword
           description: 
@@ -105,10 +105,10 @@
           description: The geographical state of the user account.
         - name: surname
           type: keyword
-          description: Surname, family name, or last name of the account user
+          description: Surname, family name, or last name of the account user.
         - name: tags
           type: keyword
-          description: Tags assigned to the account user by Defender for Identity
+          description: Tags assigned to the account user by Defender for Identity.
         - name: type
           type: keyword
           description: Type of user account, indicating its general role and access levels, such as Regular, System, Admin, DcAdmin, System, Application.
@@ -881,7 +881,7 @@
       description: The identity's source, such as Microsoft Entra ID, Active Directory, or a hybrid identity synchronized from Active Directory to Azure Active Directory.
     - name: source_system
       type: keyword
-      description: The source system for the record
+      description: The source system for the record.
     - name: subject
       type: keyword
       description: Subject of the email.
@@ -930,7 +930,7 @@
       description: Tunneling protocol, if the interface is used for this purpose, for example 6to4, Teredo, ISATAP, PPTP, SSTP, and SSH.
     - name: type
       type: keyword
-      description: The ype of record.
+      description: The type of record.
     - name: url
       type: keyword
       description: Full URL in the email subject, body, or attachment.
@@ -1003,6 +1003,3 @@
   multi_fields:
     - name: text
       type: text
-- name: type
-  type: keyword
-  description: Type of record
