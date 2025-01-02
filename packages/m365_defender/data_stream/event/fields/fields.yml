@@ -60,7 +60,7 @@
           description: The user's distinguished name.          
         - name: given_name 
           type: keyword
-          description: Given name or first name of the account user
+          description: Given name or first name of the account user.
         - name: id
           type: keyword
           description: An identifier for the account as found by Microsoft Defender for Cloud Apps. Could be Azure Active Directory ID, user principal name, or other identifiers.
